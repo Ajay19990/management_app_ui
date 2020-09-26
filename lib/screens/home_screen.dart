@@ -1,8 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:management_app_ui/utilities/constants.dart';
 import 'package:management_app_ui/widgets/custom_app_bar.dart';
 import 'package:management_app_ui/widgets/custom_tab_bar.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
+  @override
+  _HomeScreenState createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  int _selectedIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -65,8 +73,23 @@ class HomeScreen extends StatelessWidget {
                             ),
                           ),
                         ),
-                        SizedBox(height: 54),
-                        CustomTabBar(),
+                        SizedBox(height: 46),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: tabs.asMap().entries.map((MapEntry map) {
+                            print('selected index: ' + '$_selectedIndex');
+                            print('map.key: ' + '${map.key}');
+                            return CustomTab(
+                              index: map.key,
+                              selectedIndex: _selectedIndex,
+                              onTap: () {
+                                setState(() {
+                                  _selectedIndex = map.key;
+                                });
+                              },
+                            );
+                          }).toList(),
+                        )
                       ],
                     ),
                   ),

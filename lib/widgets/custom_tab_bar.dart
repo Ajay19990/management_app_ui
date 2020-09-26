@@ -1,33 +1,46 @@
 import 'package:flutter/material.dart';
 
-class CustomTabBar extends StatelessWidget {
+const tabs = [
+  'Projects',
+  'Clients',
+  'Complet',
+];
+
+class CustomTab extends StatelessWidget {
+  final int index;
+  final int selectedIndex;
+  final Function onTap;
+
+  CustomTab({this.index, this.selectedIndex, this.onTap});
+
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceAround,
-      children: [
-        Text(
-          'Projects',
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        alignment: Alignment.center,
+        height: 38,
+        width: 90,
+        decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(4),
+            boxShadow: selectedIndex == index
+                ? [
+                    BoxShadow(
+                      offset: Offset(10, 10),
+                      color: Colors.grey[200],
+                      blurRadius: 20,
+                    ),
+                  ]
+                : []),
+        child: Text(
+          tabs[index],
           style: TextStyle(
-            fontWeight: FontWeight.w600,
-            fontSize: 16,
+            fontWeight: selectedIndex == index ? FontWeight.bold : FontWeight.normal,
+            fontSize: selectedIndex == index ? 16 : 15.5,
           ),
         ),
-        Text(
-          'Clients',
-          style: TextStyle(
-            fontWeight: FontWeight.w600,
-            fontSize: 16,
-          ),
-        ),
-        Text(
-          'Complet',
-          style: TextStyle(
-            fontWeight: FontWeight.w600,
-            fontSize: 16,
-          ),
-        ),
-      ],
+      ),
     );
   }
 }
