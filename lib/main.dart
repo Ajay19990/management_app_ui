@@ -12,6 +12,23 @@ class ManagementApp extends StatelessWidget {
       title: 'Management App',
       home: HomeScreen(),
       debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        textTheme: TextTheme(
+          headline4: TextStyle(
+            fontWeight: FontWeight.bold,
+            color: Colors.black,
+            fontSize: 25,
+          ),
+          bodyText1: TextStyle(
+            color: Colors.grey[600],
+            fontSize: 15,
+          ),
+          bodyText2: TextStyle(
+            color: Colors.grey[600],
+            fontSize: 13,
+          ),
+        ),
+      ),
     );
   }
 }

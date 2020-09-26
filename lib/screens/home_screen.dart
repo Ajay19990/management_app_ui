@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:management_app_ui/utilities/constants.dart';
 import 'package:management_app_ui/widgets/custom_app_bar.dart';
-import 'package:management_app_ui/widgets/custom_tab_bar.dart';
+import 'package:management_app_ui/widgets/custom_tab.dart';
+import 'package:management_app_ui/widgets/home_list_view.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -48,37 +49,26 @@ class _HomeScreenState extends State<HomeScreen> {
                           padding: const EdgeInsets.only(left: 2.0),
                           child: Text(
                             'Hi Rahman!',
-                            style: TextStyle(
-                              color: Colors.grey[600],
-                              fontSize: 15,
-                            ),
+                            style: Theme.of(context).textTheme.bodyText1,
                           ),
                         ),
                         SizedBox(height: 2),
                         Text(
                           'Good afternoon',
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 25,
-                          ),
+                          style: Theme.of(context).textTheme.headline4,
                         ),
                         SizedBox(height: 4),
                         Padding(
                           padding: EdgeInsets.only(left: 2),
                           child: Text(
                             '03 September 2019',
-                            style: TextStyle(
-                              color: Colors.grey[600],
-                              fontSize: 13,
-                            ),
+                            style: Theme.of(context).textTheme.bodyText2,
                           ),
                         ),
                         SizedBox(height: 46),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: tabs.asMap().entries.map((MapEntry map) {
-                            print('selected index: ' + '$_selectedIndex');
-                            print('map.key: ' + '${map.key}');
                             return CustomTab(
                               index: map.key,
                               selectedIndex: _selectedIndex,
@@ -95,20 +85,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
               ),
-              SliverList(
-                delegate: SliverChildBuilderDelegate(
-                  (context, index) {
-                    return Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Container(
-                        height: 40,
-                        color: Colors.lightBlue[50],
-                      ),
-                    );
-                  },
-                  childCount: 49,
-                ),
-              )
+              HomeListView(),
             ],
           ),
         ),

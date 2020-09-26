@@ -36,6 +36,7 @@ class CustomTab extends StatelessWidget {
         child: Text(
           tabs[index],
           style: TextStyle(
+            color: Colors.black,
             fontWeight: selectedIndex == index ? FontWeight.bold : FontWeight.normal,
             fontSize: selectedIndex == index ? 16 : 15.5,
           ),
