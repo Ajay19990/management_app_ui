@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class CustomAppBar extends StatelessWidget {
+class HomeAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:management_app_ui/utilities/constants.dart';
-import 'package:management_app_ui/widgets/custom_app_bar.dart';
+import 'package:management_app_ui/widgets/home_app_bar.dart';
 import 'package:management_app_ui/widgets/custom_tab.dart';
 import 'package:management_app_ui/widgets/home_list_view.dart';
 
@@ -19,7 +18,7 @@ class _HomeScreenState extends State<HomeScreen> {
       child: SafeArea(
         bottom: false,
         child: Scaffold(
-          backgroundColor: Colors.lightBlue[50],
+          backgroundColor: Color(0xFFF2F6FE),
           body: CustomScrollView(
             slivers: [
               SliverAppBar(
@@ -33,7 +32,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     bottomRight: Radius.circular(90),
                   ),
                 ),
-                title: CustomAppBar(),
+                title: HomeAppBar(),
                 flexibleSpace: FlexibleSpaceBar(
                   background: Padding(
                     padding: const EdgeInsets.only(

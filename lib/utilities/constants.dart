@@ -5,40 +5,48 @@ const projects = [
     name: 'Social Media App',
     date: 'Deadline Nov 20,2019',
     imageName: 'assets/google.png',
+    progressValue: 0.4,
   ),
   Project(
     name: 'Event App',
     date: 'Deadline Nov 30,2019',
     imageName: 'assets/pinterest.png',
+    progressValue: 0.3,
   ),
   Project(
     name: 'Video Calling App',
     date: 'Deadline Dec 20,2019',
     imageName: 'assets/skype.png',
+    progressValue: 0.6,
   ),
   Project(
     name: 'Instagram App',
     date: 'Deadline Nov 20,2019',
     imageName: 'assets/instagram.png',
+    progressValue: 0.45,
   ),
   Project(
     name: 'Online Messaging App',
     date: 'Deadline Nov 20,2019',
     imageName: 'assets/messenger.png',
+    progressValue: 0.8,
   ),
   Project(
     name: 'E-Mail App',
     date: 'Deadline Dec 10,2019',
     imageName: 'assets/gmail.png',
+    progressValue: 0.7,
   ),
   Project(
     name: 'Chat App',
     date: 'Deadline Dec 30,2019',
     imageName: 'assets/whatsapp.png',
+    progressValue: 0.6,
   ),
   Project(
     name: 'Browser App',
     date: 'Deadline Jan 01,2020',
     imageName: 'assets/firefox.png',
+    progressValue: 0.45,
   ),
 ];
