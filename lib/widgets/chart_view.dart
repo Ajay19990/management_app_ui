@@ -1,26 +1,31 @@
 import 'package:flutter/material.dart';
+import 'package:management_app_ui/utilities/constants.dart';
+import 'package:management_app_ui/widgets/chart_status_view.dart';
 
-class ChartDataView extends StatelessWidget {
+class ChartView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Container(
-          height: 14,
-          width: 14,
-          decoration: BoxDecoration(
-            color: Colors.indigoAccent,
-            borderRadius: BorderRadius.circular(7),
+          width: MediaQuery.of(context).size.width * 0.44 - 30,
+          height: MediaQuery.of(context).size.width * 0.44 - 30,
+          color: Colors.grey[400],
+        ),
+        Expanded(
+          child: Container(
+            height: MediaQuery.of(context).size.width * 0.44 - 50,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: chartData
+                  .map((chart) => Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: ChartStatusView(chart),
+                      ))
+                  .toList(),
+            ),
           ),
-        ),
-        Text(
-          'Done',
-          style: Theme.of(context).textTheme.bodyText1,
-        ),
-        Text(
-          '45%',
-          style: Theme.of(context).textTheme.bodyText1,
         ),
       ],
     );

@@ -18,7 +18,7 @@ class _HomeScreenState extends State<HomeScreen> {
       child: SafeArea(
         bottom: false,
         child: Scaffold(
-          backgroundColor: Color(0xFFF2F6FE),
+          backgroundColor: Theme.of(context).accentColor,
           body: CustomScrollView(
             slivers: [
               SliverAppBar(

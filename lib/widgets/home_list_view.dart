@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:management_app_ui/screens/detail_screen.dart';
 import 'package:management_app_ui/utilities/constants.dart';
 
 class HomeListView extends StatelessWidget {
@@ -15,56 +16,67 @@ class HomeListView extends StatelessWidget {
               color: Colors.white,
             ),
             height: 100,
-            child: Column(
-              children: [
-                Row(
+            child: GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => DetailScreen()),
+                );
+              },
+              child: Container(
+                child: Column(
                   children: [
-                    Container(
-                      margin: EdgeInsets.symmetric(horizontal: 16),
-                      padding: EdgeInsets.all(8),
-                      height: 65,
-                      width: 65,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(12),
-                        color: Color(0xFFF2F6FE),
-                      ),
-                      child: Image(
-                        image: AssetImage('${project.imageName}'),
-                        color: null,
-                        fit: BoxFit.scaleDown,
-                        alignment: Alignment.center,
-                      ),
+                    Row(
+                      children: [
+                        Container(
+                          margin: EdgeInsets.symmetric(horizontal: 16),
+                          padding: EdgeInsets.all(8),
+                          height: 65,
+                          width: 65,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(12),
+                            color: Theme.of(context).accentColor,
+                          ),
+                          child: Image(
+                            image: AssetImage('${project.imageName}'),
+                            color: null,
+                            fit: BoxFit.scaleDown,
+                            alignment: Alignment.center,
+                          ),
+                        ),
+                        Padding(
+                          padding:
+                              const EdgeInsets.symmetric(vertical: 22, horizontal: 2),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                '${project.name}',
+                                style: TextStyle(
+                                  fontWeight: FontWeight.w600,
+                                  letterSpacing: 0.2,
+                                  fontSize: 15,
+                                  color: Colors.black,
+                                ),
+                              ),
+                              SizedBox(height: 6),
+                              Text(
+                                '${project.date}',
+                                style: Theme.of(context).textTheme.bodyText1,
+                              ),
+                            ],
+                          ),
+                        )
+                      ],
                     ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 22, horizontal: 2),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            '${project.name}',
-                            style: TextStyle(
-                              fontWeight: FontWeight.w600,
-                              letterSpacing: 0.2,
-                              fontSize: 15,
-                              color: Colors.black,
-                            ),
-                          ),
-                          SizedBox(height: 6),
-                          Text(
-                            '${project.date}',
-                            style: Theme.of(context).textTheme.bodyText1,
-                          ),
-                        ],
-                      ),
+                    LinearProgressIndicator(
+                      backgroundColor: Colors.lightBlue[100],
+                      valueColor: AlwaysStoppedAnimation<Color>(Colors.blue),
+                      value: project.progressValue,
                     )
                   ],
                 ),
-                LinearProgressIndicator(
-                  backgroundColor: Colors.lightBlue[100],
-                  valueColor: AlwaysStoppedAnimation<Color>(Colors.blue),
-                  value: project.progressValue,
-                )
-              ],
+              ),
             ),
           );
         },

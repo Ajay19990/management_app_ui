@@ -9,17 +9,17 @@ class ProjectTaskSliverList extends StatelessWidget {
           return Container(
             color: Color(0xFFE1E7F6),
             child: Container(
-              height: 240,
+              height: 200,
               width: 30,
-              margin: EdgeInsets.all(30),
+              margin: EdgeInsets.symmetric(horizontal: 30, vertical: 15),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(15),
                 color: Colors.grey[50],
                 boxShadow: [
                   BoxShadow(
                     offset: Offset(5, 5),
-                    color: Colors.grey[200],
-                    blurRadius: 2,
+                    color: Colors.grey[300],
+                    blurRadius: 20,
                   ),
                 ],
               ),

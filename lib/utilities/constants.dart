@@ -1,4 +1,6 @@
+import 'package:management_app_ui/models/chart_data.dart';
 import 'package:management_app_ui/models/project.dart';
+import 'package:flutter/material.dart';
 
 const projects = [
   Project(
@@ -50,3 +52,19 @@ const projects = [
     progressValue: 0.45,
   ),
 ];
+
+const chartData = [
+  ChartData(color: Colors.indigoAccent, status: 'Done', percentage: 45),
+  ChartData(color: Colors.redAccent, status: 'In Progress', percentage: 25),
+  ChartData(color: Colors.orangeAccent, status: 'To Do', percentage: 15),
+];
+
+const taskCategory = [
+  'All',
+  'Design',
+  'Frontend',
+  'Backend',
+  'Management',
+];
+
+const selectedColor = Color(0xFF0D204C);
